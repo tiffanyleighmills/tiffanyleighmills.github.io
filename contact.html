@@ -50,7 +50,7 @@
 					<li><a href="https://www.imdb.com/name/nm10414623"><i class="icon-person"></i></a></li>
 				</ul>
 			</div>
-		</aside> <!-- END COLORLIB-ASIDE -->
+		</aside> 
 		<div id="colorlib-main">
 			<section class="ftco-section contact-section">
 	      <div class="container">
@@ -63,14 +63,11 @@
 	            <p><span>Email:</span> <a href="mailto:tiffanycranmer@yahoo.com">tiffanycranmer@yahoo.com</a></p>
 	          </div>
 	        </div>
-	        <div class="row block-9">
-	          <div class="col-md-6 order-md-last pr-md-5">
-	            <form action="#">
+	        <div class="row block-12">
+	          <div class="col-md-12 order-md-last pr-md-5">
+	            <form class='contact-me' method='POST'>
 	              <div class="form-group">
 	                <input type="text" class="form-control" placeholder="Your Name">
-	              </div>
-	              <div class="form-group">
-	                <input type="text" class="form-control" placeholder="Your Email">
 	              </div>
 	              <div class="form-group">
 	                <input type="text" class="form-control" placeholder="Subject">
@@ -96,8 +93,8 @@
 	            <div class="ftco-footer-widget mb-4 ml-md-4">
 	              <h2 class="ftco-heading-2">Category</h2>
 	              <ul class="list-unstyled categories">
-	                <li><a href="#">Photography</a></li>
-	                <li><a href="#">About</a></li>
+	                <li><a href="photography.html">Photography</a></li>
+	                <li><a href="about.html">About</a></li>
 	              </ul>
 	            </div>
 	          </div>
@@ -120,10 +117,9 @@
 	        </div>
 	      </div>
 	    </footer>
-		</div><!-- END COLORLIB-MAIN -->
-	</div><!-- END COLORLIB-PAGE -->
+		</div>
+	</div>
 
-  <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
 
@@ -141,7 +137,20 @@
   <script src="js/bootstrap-datepicker.js"></script>
   <script src="js/jquery.timepicker.min.js"></script>
   <script src="js/scrollax.min.js"></script>
-  <script src="js/main.js"></script>
+	<script src="js/main.js"></script>
+	<script>
+			$( document ).ready(function() {
+				$('.contact-me').submit(function(e) {
+					e.preventDefault();
+					var name = e.target[0].value
+					var subject = e.target[1].value
+					var message = e.target[2].value
+					// yup this is hacky :'(
+					window.location.href = `mailto:tiffanycranmer@yahoo.com?subject=${subject}&body=${message}`;
+					
+				})
+			});
+			</script>
     
   </body>
 </html>
